@@ -11,7 +11,7 @@ namespace httprequest;
 
 final class Debugger
 {
-    static public function print()
+    static public function dump()
     {
         echo "<pre>";
         foreach (func_get_args() as $arg){
@@ -29,7 +29,7 @@ final class Debugger
             echo '<td'.$tdStyle.'>'.$k.'</td>';
             echo '<td'.$tdStyle.'>';
             if(is_object($item)||is_array($item)){
-                Debugger::print($item);
+                Debugger::dump($item);
             }else {
                 if (is_string($item)) {
                     echo '"', $item, '"';

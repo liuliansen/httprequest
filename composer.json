@@ -1,0 +1,14 @@
+{
+    "name": "liuliansen/httprequest",
+    "type": "library",
+    "description": "A PHP Http request library ",
+    "authors": [
+        {
+            "name": "LianSen",
+            "email": "liansen@d3zz.com"
+        }
+    ],
+    "version": 1.0,
+    "minimum-stability": "dev",
+    "require": {}
+}
