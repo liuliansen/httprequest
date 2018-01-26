@@ -8,8 +8,8 @@
             "email": "liansen@d3zz.com"
         }
     ],
-    "version": "1.0",
-    "minimum-stability": "dev",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
     "require": {},
     "autoload": {
         "psr-4": {
