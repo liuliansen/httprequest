@@ -67,6 +67,8 @@ class HttpRequest
 
     protected $requestInfo = [];
 
+    protected $postData = null;
+
     /**
      * @return int
      */
@@ -190,12 +192,12 @@ class HttpRequest
                 curl_setopt ( $this->ch, CURLOPT_POST, 0 );
                 break;
             case 'post':
-                $params =  $this->url->isEncoding()
+                $this->postData =  $this->url->isEncoding()
                     ? $this->url->getQueryStr()
                     : $this->url->getParams();
-                $this->requestInfo['params'] = $params;
+                $this->requestInfo['params'] = $this->postData;
                 curl_setopt ( $this->ch, CURLOPT_POST, 1 );
-                curl_setopt ( $this->ch, CURLOPT_POSTFIELDS, $params);
+                curl_setopt ( $this->ch, CURLOPT_POSTFIELDS, $this->postData);
                 break;
         }
     }
@@ -247,7 +249,7 @@ class HttpRequest
                 $this->url = new Url($this->responseHeader->get('Location'));
                 $this->requestInfo = [];
                 $this->initCurl();
-                $this->request(1);
+                $this->request($debug);
             }
         }
 
@@ -328,6 +330,14 @@ class HttpRequest
     public function getTimeOut()
     {
         return $this->timeOut;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPostData()
+    {
+        return $this->postData;
     }
 
 }
