@@ -59,4 +59,13 @@ class Header
         return $this->header;
     }
 
+    /**
+     * 获取原始的响应头字符串
+     * @return string
+     */
+    public function getOriginHeaderString()
+    {
+        return $this->origHeader;
+    }
+
 }

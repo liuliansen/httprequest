@@ -186,6 +186,7 @@ class HttpRequest
         curl_setopt ( $this->ch, CURLOPT_CONNECTTIMEOUT, $this->timeOut );
         curl_setopt ( $this->ch, CURLOPT_SSL_VERIFYHOST, false );
         curl_setopt ( $this->ch, CURLOPT_SSL_VERIFYPEER, true );
+        curl_setopt ( $this->ch, CURLINFO_HEADER_OUT, true );
 
         switch ($this->url->getMethod()){
             case 'get':
@@ -338,6 +339,17 @@ class HttpRequest
     public function getPostData()
     {
         return $this->postData;
+    }
+
+
+    /**
+     * 获取curl执行信息见 curl_getinfo()方法
+     * @param $code
+     * @return mixed
+     */
+    public function getCurlInfo($code)
+    {
+        return curl_getinfo($this->ch,$code);
     }
 
 }
