@@ -2,7 +2,7 @@
 //+-------------------------------------------------------------
 //| 请求url对象
 //+-------------------------------------------------------------
-//| Author Liu LianSen <liansen@d3zz.com> 
+//| Author Liu LianSen <liansen@d3zz.com>
 //+-------------------------------------------------------------
 //| Date 2017-09-13
 //+-------------------------------------------------------------
@@ -23,12 +23,12 @@ class Url implements \JsonSerializable
      * Url constructor.
      * @param $url
      * @param string $method
-     * @param array $params
+     * @param mixed $params
      * @param boolean $encoding
      * @throws UrlMethodInvalidException
      * @throws UrlParameterInvalidException
      */
-    public function __construct($url, $method = 'get', array $params = [],$encoding = false)
+    public function __construct($url, $method = 'get', $params = [],$encoding = false)
     {
         if(!$url || !is_string($url)){
             throw new UrlParameterInvalidException('url不是一个有效的地址');

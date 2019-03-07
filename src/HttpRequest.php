@@ -2,7 +2,7 @@
 //+-------------------------------------------------------------
 //| http请求对象，基于curl库的
 //+-------------------------------------------------------------
-//| Author Liu LianSen <liansen@d3zz.com> 
+//| Author Liu LianSen <liansen@d3zz.com>
 //+-------------------------------------------------------------
 //| Date 2017-09-13
 //+-------------------------------------------------------------
@@ -193,9 +193,7 @@ class HttpRequest
                 curl_setopt ( $this->ch, CURLOPT_POST, 0 );
                 break;
             case 'post':
-                $this->postData =  $this->url->isEncoding()
-                    ? $this->url->getQueryStr()
-                    : $this->url->getParams();
+                $this->postData = $this->url->getParams();
                 $this->requestInfo['params'] = $this->postData;
                 curl_setopt ( $this->ch, CURLOPT_POST, 1 );
                 curl_setopt ( $this->ch, CURLOPT_POSTFIELDS, $this->postData);
